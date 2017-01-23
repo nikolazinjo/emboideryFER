@@ -1,0 +1,94 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit" asp-controller="Product" method="post">
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductId" />
+        <input type="hidden" asp-for="ImagePath" />
+        <input type="hidden" asp-for="ThumbPath" />
+        <div class="form-group">
+            <label asp-for="ProductName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductName" class="form-control" placeholder="Enter product name" />
+                <span asp-validation-for="ProductName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductPrice" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductPrice" class="form-control" placeholder="Enter product price" />
+                <span asp-validation-for="ProductPrice" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Category" class="form-control" placeholder="Enter category" />
+                <span asp-validation-for="Category" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PriorityView" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PriorityView" />
+                <label asp-for="PriorityView"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="IsUnlimited" />
+                    <label asp-for="IsUnlimited"></label>
+                </div>
+            </div>
+        </div>
+        @if (!Model.IsUnlimited)
+        {
+            <div class="form-group">
+                <label asp-for="Quantity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Quantity" class="form-control" placeholder="Enter product quantity" />
+                    <span asp-validation-for="Quantity" class="text-danger" />
+                </div>
+            </div>
+        }
+        else
+        {
+            Model.Quantity = 0;
+        }
+        <div class="form-group">
+            <label asp-for="ProductDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="ProductDescription" class="form-control" placeholder="Describe your product"></textarea>
+                <span asp-validation-for="ProductDescription" class="text-danger" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <img src="~/images/@Model.ThumbPath" alt="@Model.ProductName image" class="img-thumbnail"/>
+                <br />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success"/>
+                <a asp-action="ProductList" class="btn btn-warning">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+        
+        
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
