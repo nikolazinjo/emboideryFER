@@ -1,0 +1,35 @@
+﻿@using WebAppProject.Models
+@model IEnumerable<WebAppProject.Models.Product>
+    <!--Ili CartProduct umjesto Product-->
+
+
+@foreach (var s in Model)
+{
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="/images/@s.ThumbPath" class="img-responsive">
+                <a href="#">
+                    <i class="fa fa-3x fa-fw fa-cart-arrow-down"></i>
+                </a>
+
+            </div>
+            <div class="col-md-7">
+                <h1>@s.ProductName</h1>
+
+                @if (!s.IsUnlimited)
+                {
+                <h3>State: Available</h3>
+                }
+                else
+                {
+                <h3>State: @s.Quantity product(s) at stock</h3>
+                }
+                <p>
+                    @s.ProductDescription
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr />
+}
