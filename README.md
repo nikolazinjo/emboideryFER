@@ -4,20 +4,20 @@
 ##### Nikola Benazić
 > GitHub:    Nikolazinjo
 > JMBAG: 0036491543
-* - backend, baza podataka, funkcije s radom sa bazom podataka
-*
+> - backend, baza podataka, funkcije s radom sa bazom podataka
+
 ***
 ##### Tomislav Horvat
 > GitHub:     Tomislavko
 > JMBAG: 0036494620
-* - backend, kontroleri
-*
+> - backend, kontroleri
+
 ***
 ##### Mislav Vuletić
 > GitHub:     MasterMedo
 > JMBAG: 0036490616
-* - frontend 
-*
+> - frontend 
+
 ***
 ### Embroidery FER 
 WebShop web stranica namijenjena za kupovinu odjeće/poklona. 
