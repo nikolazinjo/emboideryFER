@@ -30,3 +30,5 @@ Upute za korištenje na Azureu:
 * kategorije Clothes i Gifts
 
 link https://embroideryfer.azurewebsites.net/
+
+*PS. google authentikacija ne radi tako da je stranicu najbolje ispitati u incognito mode-u ako ste vec logirani na svom google racunu da bi se izbjegnula pojava 400 errora zbog lošeg rediracta prilikomom klika na ShoppingCart karticu.
