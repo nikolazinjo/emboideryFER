@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:28299/",
+      "applicationUrl": "https://localhost:44363/",
       "sslPort": 44363
     }
   },
@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "https://embroideryfer.azurewebsites.net",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "production"
+        "ASPNETCORE_ENVIRONMENT": "development"
       }
     },
     "WebApp": {

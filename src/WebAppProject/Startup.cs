@@ -99,6 +99,14 @@ namespace WebAppProject
 
             app.UseIdentity();
 
+            app.UseGoogleAuthentication(new GoogleOptions()
+            {
+                ClientId = Configuration["GoogleAuthClientId"],
+                ClientSecret = Configuration["GoogleAuthSecret"],
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true
+            });
+
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 
             app.UseMvc(routes =>
