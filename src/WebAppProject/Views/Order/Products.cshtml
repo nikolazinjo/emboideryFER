@@ -1,0 +1,60 @@
+﻿@using WebAppProject.Models
+@model List<WebAppProject.Models.CartProduct>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script><!--http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js-->
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script><!--http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js-->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css"><!--http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css-->
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    
+
+
+
+</head>
+<body>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="page-header">
+                    <h1>Order Products</h1>
+                    <a asp-route-returnurl="" asp-controller="Order" asp-action="UnCompleted"><h5>Back to Active</h5></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (CartProduct s in Model)
+{
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="/images/@s.Product.ThumbPath" class="img-responsive">
+            </div>
+            <div class="col-md-7">
+                <h1>@s.Product.ProductName</h1>
+                <h3>Category: @s.Product.Category</h3>
+                <p>
+                    @s.Product.ProductDescription
+                </p>
+                <h3>Quantity: @s.Quantity</h3>
+                <hr />
+            </div>
+        </div>
+    </div>
+}
+
+</body>
+</html>

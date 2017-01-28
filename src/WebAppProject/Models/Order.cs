@@ -11,9 +11,9 @@ namespace WebAppProject.Models
         public Order()
         {
             OrderId = Guid.NewGuid();
-           
+
         }
-        public Order(Guid cartId, DateTime orderDate, string firstName, string lastName, string adress, string city, string postalCode, string country, string phoneNumber, string emailAdress, Decimal total)
+      /*  public Order(Guid cartId, DateTime orderDate, string firstName, string lastName, string adress, string city, string postalCode, string country, string phoneNumber, string emailAdress, Decimal total)
         {
             OrderId = Guid.NewGuid();
             ShoppingCartId = cartId;
@@ -27,7 +27,7 @@ namespace WebAppProject.Models
             Phone = phoneNumber;
             Email = emailAdress;
             Total = total;
-        }
+        }*/
 
         public Guid OrderId { get; set; }
 
@@ -79,6 +79,8 @@ namespace WebAppProject.Models
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
-        
+        [BindNever]
+        public bool RequestCompleted { get; set; }
+
     }
 }

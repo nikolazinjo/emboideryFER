@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebAppProject.Models.Order>
+
+@{
+    ViewData["Title"] = "Active Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Completed Orders</h1>
+                </div>
+                <div>
+                    <a asp-action="UnCompleted">See active <span class="glyphicon glyphicon-briefcase"></span></a>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                <div class="btn-info">
+                    <a asp-action="Details" asp-route-id="@item.OrderId">Details</a>    
+                </div>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

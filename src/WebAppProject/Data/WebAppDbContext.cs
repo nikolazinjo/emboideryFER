@@ -64,7 +64,8 @@ namespace WebAppProject.Data
             modelBuilder.Entity<Order>().Property(s => s.Phone).IsRequired();
             modelBuilder.Entity<Order>().Property(s => s.Email).IsRequired();
             modelBuilder.Entity<Order>().Property(s => s.Total).IsRequired();
-     
+            modelBuilder.Entity<Order>().Property(s => s.RequestCompleted).IsRequired();
+
         }
 
     }

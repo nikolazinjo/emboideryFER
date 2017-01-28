@@ -5,7 +5,7 @@ using WebAppProject.Models;
 
 namespace WebAppProject.Interfaces
 {
-    public interface IWebAppRepository : IShoppingCart
+    public interface IWebAppRepository : IShoppingCart, IOrderRepository
     {
 
 

@@ -9,8 +9,9 @@ using EntityState = System.Data.Entity.EntityState;
 
 namespace WebAppProject.Logic
 {
-    public class WebAppSqlRepository : IWebAppRepository, IShoppingCart
-    {
+    public class WebAppSqlRepository : IWebAppRepository
+    { 
+
         private readonly WebAppDbContext _context;
 
 
@@ -174,17 +175,8 @@ namespace WebAppProject.Logic
             }
         }
 
-        // maybe unnecessary
-        public bool CreateOrder(Order order)
-        {
-            if (order == null)
-            {
-                return false;
-            }
-            _context.Orders.Add(order);
-            _context.SaveChanges();
-            return true;
-        }
+       
+       
 
 
         public List<Product> GetProductsByPriority(int n)
@@ -410,10 +402,66 @@ namespace WebAppProject.Logic
 
         }
 
-      
+
 
 
         #endregion
 
+
+
+        #region order
+
+
+        public bool CreateOrder(Order order)
+        {
+            if (order == null)
+            {
+                return false;
+            }
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+            return true;
+        }
+
+
+        public Order GetOrder(Guid id)
+        {
+            return _context.Orders.SingleOrDefault(s => s.OrderId == id);
+        }
+
+
+        public List<Order> GetUnCompletedOrders()
+        {
+           return _context.Orders.Where(s => !s.RequestCompleted).OrderByDescending(s => s.OrderDate).ToList();
+        }
+
+
+        public List<Order> GetCompletedOrders()
+        {
+            return _context.Orders.Where(s => s.RequestCompleted).OrderByDescending(s => s.RequestCompleted).ToList();
+        }
+
+
+        public List<CartProduct> ViewOrderProducts(Guid id)
+        {
+            return _context.CartProducts.Include(s => s.Product).Where(s => s.ShoppingCartId == id).ToList();
+        }
+
+
+        public void MarkAsCompletedOrder(Guid id)
+        {
+            var order = _context.Orders.SingleOrDefault(s => s.OrderId == id);
+            if (order == null)
+            {
+                throw new KeyNotFoundException();
+            }
+            order.RequestCompleted = true;
+            _context.SaveChanges();
+        }
+
+
+
+
+        #endregion
     }
 }

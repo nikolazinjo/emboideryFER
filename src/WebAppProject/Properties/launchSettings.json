@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "https://embroideryfer.azurewebsites.net",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "development"
+        "ASPNETCORE_ENVIRONMENT": "production"
       }
     },
     "WebApp": {

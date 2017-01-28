@@ -126,6 +126,7 @@ namespace WebAppProject.Controllers
                     _webAppSqlRepository.AddUser(myUser);
                     //_webAppSqlRepository.AddCart(new ShoppingCart(myUser));
 
+                    
                     if (false)
                     {
                         await _roleManager.CreateAsync(new IdentityRole("Admin"));

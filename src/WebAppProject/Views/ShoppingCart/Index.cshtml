@@ -1,4 +1,4 @@
-@using WebAppProject.Models
+﻿@using WebAppProject.Models
 @model List<WebAppProject.Models.CartProduct>
 @{
     ViewData["Title"] = "Index";
@@ -70,7 +70,7 @@
                                 <div class="col-md-12">
                                     <h3 class="text-right">
                                         Total: @Model.Sum(k => k.Product.ProductPrice * k.Quantity)
-                                        <br /> <a asp-route-id="@Model.ElementAt(0).ShoppingCartId" asp-controller="ShoppingCart" asp-action="CreateOrder">Create order</a>
+                                        <br /> <a asp-route-id="@Model.ElementAt(0).ShoppingCartId" asp-controller="Order" asp-action="CreateOrder">Create order</a>
                                     </h3>
                                 </div>
                             </div>

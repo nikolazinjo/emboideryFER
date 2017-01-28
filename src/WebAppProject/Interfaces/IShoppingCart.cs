@@ -29,7 +29,5 @@ namespace WebAppProject.Interfaces
 
         Guid? GetCartId(User user);
 
-        bool CreateOrder(Order order);
-
     }
 }
