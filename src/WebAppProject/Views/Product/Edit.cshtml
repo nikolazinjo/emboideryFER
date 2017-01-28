@@ -5,7 +5,16 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<html>
+
+<link href="css/pigendo_bootstrap.css" />
+
+<head>
+    
+    <h2>Edit</h2>
+</head>
+
+<body>
 
 <form asp-action="Edit" asp-controller="Product" method="post">
     <div class="form-horizontal">
@@ -88,8 +97,10 @@
     </div>
 </form>
         
-        
+   </body>    
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+</html>
