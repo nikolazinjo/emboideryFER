@@ -11,7 +11,7 @@ using WebAppProject.Models;
 
 namespace WebAppProject.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,User")]
     public class OrderController : Controller
     {
 
@@ -26,7 +26,7 @@ namespace WebAppProject.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult UnCompleted()
         {
             var orders = _webAppSqlRepository.GetUnCompletedOrders();
@@ -34,7 +34,7 @@ namespace WebAppProject.Controllers
             return View(orders);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Completed()
         {
             var orders = _webAppSqlRepository.GetCompletedOrders();
@@ -43,7 +43,7 @@ namespace WebAppProject.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult MarkCompleted(Guid id)
         {
             try
@@ -58,7 +58,8 @@ namespace WebAppProject.Controllers
             }
         }
 
-        
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(Guid id)
         {
             var order = _webAppSqlRepository.GetOrder(id);
@@ -71,7 +72,9 @@ namespace WebAppProject.Controllers
             return View(order);
         }
 
-        
+
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Products(Guid id)
         {
             
@@ -80,11 +83,10 @@ namespace WebAppProject.Controllers
             return View(products);
         }
 
-        
 
-        // GET: Order/CreateOrder
-        //[Microsoft.AspNetCore.Mvc.HttpGet("{ShoppingCartId}")]
-        [Authorize]
+
+        
+        [HttpGet]
         public async Task<ActionResult> CreateOrder(Guid id)
         {
             var user = await GetCurrentUser();
@@ -106,7 +108,6 @@ namespace WebAppProject.Controllers
         // POST: ShoppingCart/CreateOrder
         [Microsoft.AspNetCore.Mvc.HttpPost]
         [Microsoft.AspNetCore.Mvc.ValidateAntiForgeryToken]
-        [Authorize]
         public async Task<ActionResult> CreateOrder(Order order)
         {
 

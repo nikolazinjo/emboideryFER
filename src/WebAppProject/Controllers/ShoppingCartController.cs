@@ -10,9 +10,7 @@ using Controller = Microsoft.AspNetCore.Mvc.Controller;
 
 namespace WebAppProject.Controllers
 {
-    //[Authorize(Roles = "User")]
-    //[Authorize(Roles = "Admin")]
-    [Authorize]
+    [Authorize(Roles = "User,Admin")]
     public class ShoppingCartController : Controller
     {
         private readonly IWebAppRepository _webAppSqlRepository;
@@ -27,6 +25,7 @@ namespace WebAppProject.Controllers
 
 
         // GET: ShoppingCart
+        
         public async Task<ActionResult> Index()
         {
             var user = await GetCurrentUser();
@@ -45,7 +44,7 @@ namespace WebAppProject.Controllers
             return View(_webAppSqlRepository.GetCartItems(me));
         }
 
-        
+
         public async Task<IActionResult> AddToCart(Guid id)
         {
             if (_webAppSqlRepository.TakeProduct(id, 1))
@@ -85,7 +84,6 @@ namespace WebAppProject.Controllers
             return RedirectToAction("Index");
         }
 
-       
 
         public async Task<ActionResult> DeleteAll()
         {
@@ -99,7 +97,6 @@ namespace WebAppProject.Controllers
          
             return RedirectToAction("Index");
         }
-
 
 
         private async Task<ApplicationUser> GetCurrentUser()

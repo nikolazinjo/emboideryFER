@@ -30,26 +30,7 @@ namespace WebAppProject.Controllers
         }
 
         
-        /*
-        [HttpPost]
-        public IActionResult ViewShoppingCart(ShoppingCart model)
-        {
-            if (model.CartedProducts.Count > 0)
-            {
-                _webAppSqlRepository.AddCart(model);
-            }
-            return RedirectToAction("Index", "ShoppingCart");
-        }
-        */
-
-        public IActionResult Product()
-        {
-            var products = _webAppSqlRepository.GetProductsByPriority(8);
-            return View(products);
-        }
-
-       
-
+   
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

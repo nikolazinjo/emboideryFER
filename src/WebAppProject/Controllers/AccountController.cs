@@ -129,12 +129,19 @@ namespace WebAppProject.Controllers
                     
                     if (false)
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        if (!await _roleManager.RoleExistsAsync("Admin"))
+                        {
+                            await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        }
                         var resultIgnorable = await _userManager.AddToRoleAsync(user, "Admin");
                     }
                     else
                     {
-                        var roleresult = _userManager.AddToRoleAsync(user, "User");
+                        if (!await _roleManager.RoleExistsAsync("User"))
+                        {
+                            await _roleManager.CreateAsync(new IdentityRole("User"));
+                        }
+                        var resultIgnorable = await _userManager.AddToRoleAsync(user, "User");
                     }
                     
 

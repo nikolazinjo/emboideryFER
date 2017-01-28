@@ -184,7 +184,7 @@ namespace WebAppProject.Controllers
         }
 
 
-       [AllowAnonymous]
+        [AllowAnonymous]
         public IActionResult Clothes()
         {
             List<Product> filtered = _webAppSqlRepository.GetFiltered(p => p.Category == "Clothes");

@@ -6,7 +6,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Order</h2>
+<html>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="~/css/pigendo_bootstrap.css" rel="stylesheet" type="text/css">
+<head>
+
+    <h2>Create Order</h2>
+    
+</head>
+
+<body>
 
 <form asp-route-return="" asp-action="CreateOrder" asp-controller="Order" method="post">
     <div class="form-horizontal">
@@ -79,7 +93,11 @@
         </div>
     </div>
 </form>
+    
+</body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+</html>

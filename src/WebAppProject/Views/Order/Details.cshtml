@@ -6,9 +6,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="~/css/pigendo_bootstrap.css" rel="stylesheet" type="text/css">
+<head>
 
 <h2>Details</h2>
-
+    
+</head>    
+<body>
 <form asp-route-id="@Model.ShoppingCartId" asp-action="Products" asp-controller="Order" method="post">
     <div class="form-horizontal">
         <h4>Order</h4>
@@ -74,12 +84,13 @@
     </div>
 </form>
 
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
 
-
+</html>
 
 
 

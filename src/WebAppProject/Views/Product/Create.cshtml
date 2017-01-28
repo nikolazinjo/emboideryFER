@@ -6,7 +6,17 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<html>
+
+<link href="css/pigendo_bootstrap.css"/>
+
+<head>
+    
+    <h2>Create</h2>
+
+</head>
+<body>
+
 
 <form method="post" asp-action="Create" asp-controller="Product" enctype="multipart/form-data">
     <div class="form-horizontal">
@@ -80,8 +90,11 @@
     </div>
 </form>
 
-
+</body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+</html>

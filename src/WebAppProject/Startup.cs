@@ -98,7 +98,9 @@ namespace WebAppProject
             app.UseStaticFiles();
 
             app.UseIdentity();
-
+            
+            // ne radi nam, stvara probleme prilikom kreiranja košarice
+            /*
             app.UseGoogleAuthentication(new GoogleOptions()
             {
                 ClientId = Configuration["GoogleAuthClientId"],
@@ -106,7 +108,7 @@ namespace WebAppProject
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true
             });
-
+            */
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 
             app.UseMvc(routes =>
